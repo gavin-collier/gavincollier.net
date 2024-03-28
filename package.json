@@ -12,5 +12,8 @@
   },
   "author": "Gavin Collier",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^20.11.30"
+  }
 }
