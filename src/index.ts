@@ -29,7 +29,7 @@ http.createServer(httpApp).listen(80, function () {
 });
 
 var server = https.createServer(app).listen(port, function () {
-    console.log("HTTPS server started on " + port);
+    console.log("Server started on " + port);
 });
 
 // var server = https.createServer(options, app).listen(port, function () {
