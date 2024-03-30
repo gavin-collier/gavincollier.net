@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
     res.send("Hi Mom!");
 });
 
+app.get('/testies', (req, res) => {
+    res.send("Hi Dad!");
+});
+
 http.createServer(httpApp).listen(80, function () {
     console.log("Express http redirect server listening on port 80");
 });
