@@ -35,7 +35,6 @@ updateTitleWithEffect("Hello World!", 350, {
     deletable: true,
     deleteDelayMs: 2000,
     callback: () => {
-        console.log('Text deletion complete. Ready to set a new title.');
         updateTitleWithEffect("I'm Gavin Collier ", 350);
     }
 });

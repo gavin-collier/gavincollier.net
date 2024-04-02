@@ -12,7 +12,7 @@ app.use(express.static('public/views'))
 app.use(express.static('public/scripts'))
 
 app.get('/', (req, res) => {
-    res.send("Hi Mom!");
+    res.render("index.html", {status: "good"});
 });
 
 var server = http.createServer(app).listen(port, function () {
