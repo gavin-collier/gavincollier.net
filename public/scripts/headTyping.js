@@ -16,8 +16,8 @@ function updateTitleWithEffect(text, intervalMs, {deletable = false, deleteDelay
                 hasCompleted = true;
             }
         } else {
+            cursorVisible = true;
             if (currentText.length > 0) {
-                cursorVisible = true;
                 currentText = currentText.slice(0, -1);
             } else {
                 clearInterval(intervalId); // Stop when deletion completes
@@ -30,11 +30,10 @@ function updateTitleWithEffect(text, intervalMs, {deletable = false, deleteDelay
     const intervalId = setInterval(updateTitle, intervalMs);
 }
 
-// Example usage
 updateTitleWithEffect("Hello World!", 350, {
     deletable: true,
     deleteDelayMs: 2000,
     callback: () => {
-        updateTitleWithEffect("I'm Gavin Collier ", 350);
+        updateTitleWithEffect("I'm Gavin Collier | Software Developer ", 350);
     }
 });

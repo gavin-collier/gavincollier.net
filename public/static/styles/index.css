@@ -19,7 +19,7 @@ body {
     }
 }
 
-.parallax-container {
+#Home {
     position: relative;
     top: 0%;
     padding: 0%;
@@ -29,14 +29,9 @@ body {
     animation-name: fadeInParallax; /* Specify the animation name */
     animation-duration: 1s; /* Animation duration */
     animation-timing-function: ease-in-out; /* Timing function */
-
-    background-image: url('../images/backgrounds/Masquerade.jpg');
-    background-size: 105%;
-    background-attachment: fixed;
-    background-position: center;
 }
 
-.parallax-content {
+#parallax-content {
     position: relative;
     top: 50%;
     left: 50%;
@@ -45,108 +40,35 @@ body {
     color: white;
 }
 
-.parallax-content h1 {
+#parallax-content h1 {
     font-size: 3rem;
 }
 
-.parallax-content p {
+#parallax-content p {
     font-size: 1.5rem;
 }
 
 /* </Parallax Header Img> */
 
-/* <navbar> */
+/* <Body Subjects> */
 
-.navbar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-}
-
-.navbar-container {
-    background-color: rgba(0, 0, 0, 0.7); /* Black with slight transparency */
-    padding: 10px 0;
-    text-align: center;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.navbar a {
+.subject {
+    height: 76vh;
     color: white;
-    text-decoration: none;
-    margin: 0 20px;
-    font-size: 1.2rem;
-}
-
-.sticky {
-    position: fixed;
-    height: 6vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-}
-
-.sticky .navbar-container {
-    background-color: rgba(0, 0, 0, 0.7); /* Black with slight transparency */
-    animation: fadeIn 0.5s ease; /* Fade in when becoming sticky */
-}
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Black with slight transparency */
     text-align: center;
-    padding: 10px 0;
-    z-index: 1;
-    display: none; /* Initially hidden */
 }
 
-/* </navbar> */
-
-/* <footer> */
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Black with slight transparency */
-    text-align: center;
-    z-index: 1;
-    display: none; /* Initially hidden */
+#About {
+    margin-top: 10vh;
 }
 
+/* <about> */
 
-/* Style for the footer */
-
-footer {
-    background-color: #333; /* Light gray background color */
-    padding: 20px 0;
-    color: white;
-    text-align: left;
+#gavinMountan {
+    max-height: 50%;
+    max-width: 30%;
 }
 
-.footer-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
+/* </about> */
 
-.footer-content h3 {
-    margin-bottom: 10px;
-}
-
-/* Style for the contact information list */
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    margin-bottom: 10px;
-}
-
-/* </footer> */
+/* </Body Subjects> */
