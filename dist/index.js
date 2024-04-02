@@ -2,7 +2,7 @@ var fs = require('fs');
 var http = require('http');
 var https = require('https');
 var express = require('express');
-const port = 443;
+const port = 555;
 // var options = {
 //     key: fs.readFileSync('./ssl/privkey.pem'),
 //     cert: fs.readFileSync('./ssl/fullchain.pem'),
@@ -17,6 +17,9 @@ app.use(express.static('public/scripts'));
 // }); //redirect non-secure trafic
 app.get('/', (req, res) => {
     res.send("Hi Mom!");
+});
+app.get('/testies', (req, res) => {
+    res.send("Hi Dad!");
 });
 http.createServer(httpApp).listen(80, function () {
     console.log("Express http redirect server listening on port 80");

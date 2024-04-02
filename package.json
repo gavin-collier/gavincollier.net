@@ -1,8 +1,7 @@
 {
   "dependencies": {
     "express": "^4.19.2",
-    "fs": "^0.0.1-security",
-    "typescript": "^3.9.10"
+    "fs": "^0.0.1-security"
   },
   "name": "gavincollier.net",
   "version": "1.0.0",
@@ -21,6 +20,6 @@
     "stylelint": "^15.11.0",
     "stylelint-config-recommended": "^13.0.0",
     "stylelint-config-standard": "^34.0.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.3"
   }
 }
