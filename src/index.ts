@@ -28,13 +28,14 @@ app.get('/testies', (req, res) => {
     res.send("Hi Dad!");
 });
 
-http.createServer(httpApp).listen(80, function () {
-    console.log("Express http redirect server listening on port 80");
-});
+// http.createServer(httpApp).listen(80, function () {
+//     console.log("Express http redirect server listening on port 80");
+// });
 
-var server = https.createServer(app).listen(port, function () {
+var server = http.createServer(app).listen(port, function () {
     console.log("Server started on " + port);
 });
+
 
 // var server = https.createServer(options, app).listen(port, function () {
 //     console.log("HTTPS server started on " + port);
