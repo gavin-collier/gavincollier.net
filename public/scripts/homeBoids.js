@@ -52,8 +52,19 @@ class Vector {
     static fromAngle(angle, magnitude) {
         return new Vector(magnitude * Math.cos(angle), magnitude * Math.sin(angle));
     }
-}
 
+    limit(max) {
+        const mag = this.magnitude();
+        if (mag > max) {
+            this.divide(mag); // Normalize to unit vector
+            this.multiply(max); // Scale to max
+        }
+    }
+
+    magnitude() {
+        return Math.sqrt(this.x * this.x + this.y * this.y);
+    }
+}
 
 class Boid {
     constructor(canvas) {
@@ -77,8 +88,9 @@ class Boid {
         let separation = new Vector(0, 0);
         let alignment = this.velocity.clone();
         let cohesion = new Vector(0, 0);
+        let mouseAttraction = new Vector(0, 0);
         let total = 0;
-
+    
         for (let other of boids) {
             let distance = this.pos.distance(other.pos);
             if (other !== this && distance < 50) {
@@ -91,56 +103,83 @@ class Boid {
                 total++;
             }
         }
-
+    
         if (total > 0) {
             separation.divide(total);
             separation.normalize();
             separation.multiply(1.5); // Adjust speed
-
+    
             alignment.divide(total);
             alignment.normalize();
-
+    
             cohesion.divide(total);
             cohesion.subtract(this.pos);
             cohesion.normalize();
         }
-
+    
+        // if (mousePos !== null) {
+        //     mouseAttraction = new Vector(mousePos.x - this.pos.x, mousePos.y - this.pos.y);
+        //     mouseAttraction.normalize(); 
+        //     mouseAttraction.multiply(0.5); 
+        // }
+        if (mousePos !== null) {
+            let towardsMouse = new Vector(mousePos.x - this.pos.x, mousePos.y - this.pos.y);
+            let distanceToMouse = towardsMouse.distance(new Vector(0, 0));
+            towardsMouse.normalize();
+            if (distanceToMouse > 0) {
+                let forceMagnitude = Math.min(10 / distanceToMouse, 1); // Control the force based on distance
+                towardsMouse.multiply(forceMagnitude);
+            }
+            mouseAttraction = towardsMouse;
+        }
+    
         this.velocity.add(separation);
         this.velocity.add(alignment);
         this.velocity.add(cohesion);
+        this.velocity.add(mouseAttraction);
         this.velocity.normalize();
-        this.velocity.multiply(1); // Adjust speed if necessary
-
+        this.velocity.multiply(1); 
+    
         this.pos.add(this.velocity);
+    
 
-        // Keep within bounds
         if (this.pos.x < 0) this.pos.x = this.canvas.width;
         if (this.pos.y < 0) this.pos.y = this.canvas.height;
         if (this.pos.x > this.canvas.width) this.pos.x = 0;
         if (this.pos.y > this.canvas.height) this.pos.y = 0;
-    }
+    }    
 }
+
 const canvas = document.getElementById('home-boids');
 const ctx = canvas.getContext('2d');
 const dpr = window.devicePixelRatio || 1;
-function setup() {
+let mousePos = null;
 
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
-    ctx.scale(dpr, dpr);
+canvas.addEventListener('mousemove', function (e) {
+    mousePos = { x: e.offsetX, y: e.offsetY };
+});
+
+canvas.addEventListener('mouseleave', function () {
+    mousePos = null;
+});
+
+function setup() {
+    resizeCanvas();
 
     const boids = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 150; i++) {
         boids.push(new Boid(canvas));
     }
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        createText();
         for (let boid of boids) {
             boid.move(boids);
             boid.draw(ctx);
         }
+
+        createText();
+
         requestAnimationFrame(animate);
     }
 
@@ -148,6 +187,19 @@ function setup() {
 }
 
 setup();
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.scale(dpr, dpr);
+
+    // You might want to reinitialize or adjust your boids here if needed
+    // For example, if their positions should be bounded by the new canvas size
+    // This is also where you'd re-draw any static elements if they're not handled in your animation loop
+}
+
+// Add this event listener after defining setup and resizeCanvas
+window.addEventListener('resize', resizeCanvas);
 
 function createText() {
     // Styles
