@@ -14,6 +14,9 @@ function updateTitleWithEffect(text, intervalMs, {deletable = false, deleteDelay
             } else if (deletable && !hasCompleted) {
                 setTimeout(() => isDeleting = true, deleteDelayMs); // Delay before deleting
                 hasCompleted = true;
+                if (!deletable){
+                    clearInterval(intervalId);
+                }
             }
         } else {
             cursorVisible = true;
