@@ -141,7 +141,7 @@ class Boid {
         this.targetVelocity.normalize().limit(-0.5, 0.5);
         this.velocity.add(this.targetVelocity.subtract(this.velocity).multiply(0.1));
 
-        // Keep boid within canvas bounds
+        // Keep boid within canvas
         this.pos.add(this.velocity);
         if (this.pos.x < 0) this.pos.x = this.canvas.width;
         if (this.pos.y < 0) this.pos.y = this.canvas.height;
@@ -152,20 +152,21 @@ class Boid {
 }
 
 const canvas = document.getElementById('home-boids');
+const parrentDiv = document.getElementById("Home");
 const ctx = canvas.getContext('2d');
 const dpr = window.devicePixelRatio || 1;
 let mousePos = null;
 
-window.addEventListener('mousemove', function (e) {
+parrentDiv.addEventListener('mousemove', function (e) {
     if (e.offsetY > canvas.height) {
         mousePos = null;
     } else {
-        mousePos = { x: e.offsetX, y: e.offsetY };
+        mousePos = { x: e.clientX, y: e.clientY };
     }
-    console.log("mouse move: " + mousePos.x + ", " + mousePos.y);
+    console.log("mouse move: x:" + mousePos.x + ", y:" + mousePos.y);
 });
 
-window.addEventListener('mouseleave', function () {
+parrentDiv.addEventListener('mouseleave', function () {
     mousePos = null;
 });
 
@@ -191,26 +192,10 @@ function setup() {
 
 setup();
 
+
 function resizeCanvas() {
     canvas.width = window.innerWidth * dpr;
     canvas.height = window.innerHeight * dpr;
     ctx.scale(dpr, dpr);
 }
-
-// Add this event listener after defining setup and resizeCanvas
 window.addEventListener('resize', resizeCanvas);
-
-// function createText() {
-//     // Styles
-//     ctx.fillStyle = 'white';
-//     ctx.textAlign = 'center';
-//     ctx.textBaseline = 'middle';
-//     var fontSizeTitle = 3.5 * dpr;
-//     var fontSizeSubtitle = 1.75 * dpr;
-//     ctx.font = `${fontSizeTitle}rem Times New Roman`;
-
-//     ctx.fillText("Gavin Collier", canvas.width / 2, canvas.height / 2 - 100);
-//     ctx.font = `${fontSizeSubtitle}rem Times New Roman`;
-//     ctx.fillText("I'm currently a student at ASU and working part-time as a student IT technician.", canvas.width / 2, canvas.height / 2 + 25);
-//     ctx.fillText("I have a lifelong love of computers and programming, I hope to turn this lifelong interest into a carrier someday!", canvas.width / 2, canvas.height / 2 + 75);
-// }
