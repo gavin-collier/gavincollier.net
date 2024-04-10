@@ -85,13 +85,6 @@ class Boid {
         ctx.fill();
     }
 
-    pidOut(p, i, min, max) {
-        if (p > i && p < max) {
-            return Math.min(.4, Math.max(-.4, p + i));
-        }
-        return Math.min(.4, Math.max(-.4, p));
-    }
-
     move(boids) {
         let separation = new Vector(0, 0);
         let alignment = this.velocity.clone();
@@ -143,10 +136,10 @@ class Boid {
 
         // Keep boid within canvas
         this.pos.add(this.velocity);
-        if (this.pos.x < 0) this.pos.x = this.canvas.width;
-        if (this.pos.y < 0) this.pos.y = this.canvas.height;
-        if (this.pos.x > this.canvas.width) this.pos.x = 0;
-        if (this.pos.y > this.canvas.height) this.pos.y = 0;
+        if (this.pos.x < -10) this.pos.x = this.canvas.width + 10;
+        if (this.pos.y < -10) this.pos.y = this.canvas.height + 10;
+        if (this.pos.x > this.canvas.width + 10) this.pos.x = -10;
+        if (this.pos.y > this.canvas.height + 10) this.pos.y = -10;
     }
 
 }
@@ -163,7 +156,7 @@ parrentDiv.addEventListener('mousemove', function (e) {
     } else {
         mousePos = { x: e.clientX, y: e.clientY };
     }
-    console.log("mouse move: x:" + mousePos.x + ", y:" + mousePos.y);
+    // console.log("mouse move: x:" + mousePos.x + ", y:" + mousePos.y);
 });
 
 parrentDiv.addEventListener('mouseleave', function () {
