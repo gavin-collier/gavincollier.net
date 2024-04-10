@@ -11,7 +11,7 @@ function updateTitleWithEffect(text, intervalMs, {deletable = false, deleteDelay
         if (!isDeleting) {
             if (index < text.length) {
                 currentText += text[index++];
-            } else if (deletable && !hasCompleted) {
+            } else if (!hasCompleted) {
                 setTimeout(() => isDeleting = true, deleteDelayMs); // Delay before deleting
                 hasCompleted = true;
                 if (!deletable){
@@ -37,6 +37,6 @@ updateTitleWithEffect("Hello World!", 350, {
     deletable: true,
     deleteDelayMs: 2000,
     callback: () => {
-        updateTitleWithEffect("I'm Gavin Collier | Software Developer ", 350);
+        updateTitleWithEffect("I'm Gavin Collier | Software Developer", 350);
     }
 });
