@@ -32,11 +32,3 @@ function updateTitleWithEffect(text, intervalMs, {deletable = false, deleteDelay
 
     const intervalId = setInterval(updateTitle, intervalMs);
 }
-
-updateTitleWithEffect("Hello World!", 350, {
-    deletable: true,
-    deleteDelayMs: 2000,
-    callback: () => {
-        updateTitleWithEffect("I'm Gavin Collier | Software Developer", 350);
-    }
-});

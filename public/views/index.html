@@ -11,7 +11,17 @@
 </head>
 
 <body>
-    <script src="headTyping.js"></script>
+    <script src="headTyping.js">
+        document.addEventListener("DOMContentLoaded", function () {
+            updateTitleWithEffect("Hello World!", 350, {
+                deletable: true,
+                deleteDelayMs: 2000,
+                callback: () => {
+                    updateTitleWithEffect("I'm Gavin Collier | Software Developer", 350);
+                }
+            });
+        });
+    </script>
     <div id="Home">
         <canvas id="home-boids"></canvas>
         <script src="homeBoids.js"></script>
@@ -19,7 +29,7 @@
             <div id="text-box">
                 <h1>Hi There.</h1>
                 <p>I'm Gavin. I'm currently a computer science student at
-                    <a href="https://www.asu.edu/" target="_blank">ASU</a> and working part-time as a student IT
+                    <a href="https://www.asu.edu" target="_blank">ASU</a> and working part-time as a student IT
                     technician.
                 </p>
             </div>
@@ -33,13 +43,12 @@
             </div>
         </div>
 
-
         <div class="navbar" id="navbar">
             <div class="navbar-container">
                 <a href="/">Home</a>
-                <a href="#About">About Me</a>
-                <a href="#School">School</a>
-                <a href="#Resume">Resume</a>
+                <a href="/about">About Me</a>
+                <a href="/contact">Contact</a>
+                <a href="/resume">Resume</a>
             </div>
         </div>
     </div>
