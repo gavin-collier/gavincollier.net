@@ -98,9 +98,9 @@ class Boid {
             distance = this.pos.distance(other.pos);
 
             if (distance < 50) {
-                let difference = this.pos.clone().subtract(other.pos).normalize().divide(distance < 10 ? distance * 0.5 : distance);
+                let difference = this.pos.clone().subtract(other.pos).normalize().divide(distance < 10 ? distance * .6 : distance);
                 separation.add(difference);
-                alignment.add(other.velocity);
+                alignment.add(other.velocity.clone().divide(distance / 8));
                 cohesion.add(other.pos);
                 total++;
             }

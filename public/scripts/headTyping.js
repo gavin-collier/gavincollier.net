@@ -27,7 +27,9 @@ function updateTitleWithEffect(text, intervalMs, {deletable = false, deleteDelay
                 if (callback) callback();
             }
         }
-        document.title = currentText + (cursorVisible ? '_' : '');
+        if (!hasCompleted){
+            document.title = currentText + (cursorVisible ? '_' : '');
+        }
     };
 
     const intervalId = setInterval(updateTitle, intervalMs);
