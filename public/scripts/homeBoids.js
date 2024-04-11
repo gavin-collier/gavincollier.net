@@ -154,7 +154,7 @@ parrentDiv.addEventListener('mousemove', function (e) {
     if (e.offsetY > canvas.height) {
         mousePos = null;
     } else {
-        mousePos = { x: e.clientX, y: e.clientY };
+        mousePos = { x: e.offsetX, y: e.offsetY };
     }
     // console.log("mouse move: x:" + mousePos.x + ", y:" + mousePos.y);
 });
@@ -177,6 +177,9 @@ function setup() {
             boid.move(boids);
             boid.draw(ctx);
         }
+        // if (mousePos != null) {
+        //     drawCircle(ctx, mousePos.x, mousePos.y, 10)
+        // }
         requestAnimationFrame(animate);
     }
 
@@ -185,6 +188,15 @@ function setup() {
 
 setup();
 
+// function drawCircle(ctx, x, y, r) {
+//     ctx.beginPath();
+//     ctx.arc(x, y, r, 0, 2 * Math.PI, false);
+//     ctx.fillStyle = 'red';
+//     ctx.fill();
+//     ctx.lineWidth = 5;
+//     ctx.strokeStyle = '#003300';
+//     ctx.stroke();
+// }
 
 function resizeCanvas() {
     canvas.width = window.innerWidth * dpr;
