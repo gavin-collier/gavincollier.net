@@ -154,7 +154,7 @@ parrentDiv.addEventListener('mousemove', function (e) {
     if (e.offsetY > canvas.height) {
         mousePos = null;
     } else {
-        mousePos = { x: e.x, y: e.y };
+        mousePos = { x: e.x / 2, y: e.y /2  };
     }
     // console.log("mouse move: x:" + mousePos.x + ", y:" + mousePos.y);
 });
@@ -191,10 +191,10 @@ setup();
 function drawCircle(ctx, x, y, r) {
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2 * Math.PI, false);
-    ctx.fillStyle = 'blue';
+    ctx.fillStyle = 'gray';
     ctx.fill();
     ctx.lineWidth = 5;
-    ctx.strokeStyle = 'lightblue';
+    ctx.strokeStyle = 'white';
     ctx.stroke();
 }
 
