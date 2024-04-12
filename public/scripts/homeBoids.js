@@ -177,9 +177,9 @@ function setup() {
             boid.move(boids);
             boid.draw(ctx);
         }
-        // if (mousePos != null) {
-        //     drawCircle(ctx, mousePos.x, mousePos.y, 10)
-        // }
+        if (mousePos != null) {
+            drawCircle(ctx, mousePos.x, mousePos.y, 10)
+        }
         requestAnimationFrame(animate);
     }
 
@@ -188,15 +188,15 @@ function setup() {
 
 setup();
 
-// function drawCircle(ctx, x, y, r) {
-//     ctx.beginPath();
-//     ctx.arc(x, y, r, 0, 2 * Math.PI, false);
-//     ctx.fillStyle = 'red';
-//     ctx.fill();
-//     ctx.lineWidth = 5;
-//     ctx.strokeStyle = '#003300';
-//     ctx.stroke();
-// }
+function drawCircle(ctx, x, y, r) {
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, 2 * Math.PI, false);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = '#003300';
+    ctx.stroke();
+}
 
 function resizeCanvas() {
     canvas.width = window.innerWidth * dpr;
