@@ -180,7 +180,9 @@ function setup() {
         if (mousePos != null) {
             drawCircle(ctx, mousePos.x, mousePos.y, 10)
         }
-        requestAnimationFrame(animate);
+        setTimeout(() => {
+            requestAnimationFrame(animate);
+        }, 1000 / 30);
     }
 
     animate();
