@@ -154,7 +154,7 @@ parrentDiv.addEventListener('mousemove', function (e) {
     if (e.offsetY > canvas.height) {
         mousePos = null;
     } else {
-        mousePos = { x: e.screenX, y: e.screenY };
+        mousePos = { x: e.clientX, y: e.clientY };
     }
     // console.log("mouse move: x:" + mousePos.x + ", y:" + mousePos.y);
 });
@@ -194,7 +194,7 @@ function drawCircle(ctx, x, y, r) {
     ctx.fillStyle = 'red';
     ctx.fill();
     ctx.lineWidth = 5;
-    ctx.strokeStyle = '#003300';
+    ctx.strokeStyle = 'pink';
     ctx.stroke();
 }
 
