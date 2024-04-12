@@ -38,6 +38,7 @@ body {
     position: absolute;
     height: 20vh;
     width: 20vw;
+    min-width: 400px;
     top: 10vh;
     left: 10vw;
     display: flex;
