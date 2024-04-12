@@ -154,7 +154,7 @@ parrentDiv.addEventListener('mousemove', function (e) {
     if (e.offsetY > canvas.height) {
         mousePos = null;
     } else {
-        mousePos = { x: e.x / 2, y: e.y /2  };
+        mousePos = { x: e.x / 1.5, y: e.y / 1.5 };
     }
     // console.log("mouse move: x:" + mousePos.x + ", y:" + mousePos.y);
 });
