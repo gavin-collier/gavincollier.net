@@ -13,15 +13,7 @@
 <body>
     <script src="headTyping.js" type="text/javascript"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            updateTitleWithEffect("Hello World!", 350, {
-                deletable: true,
-                deleteDelayMs: 2000,
-                callback: () => {
-                    updateTitleWithEffect("I'm Gavin Collier | Software Developer", 350);
-                }
-            });
-        });
+        animatedTitle("Hello, World!", "I'm Gavin | Software Developer");
     </script>
     <div id="Home">
         <canvas id="home-boids"></canvas>
@@ -29,7 +21,7 @@
         <div id="foreground">
             <div id="text-box">
                 <h1>Hi There.</h1>
-                <p>I'm Gavin. I'm currently a computer science student at
+                <p>I'm Gavin Collier. I'm currently a computer science student at
                     <a href="https://www.asu.edu" target="_blank">ASU</a> and working part-time as a student IT
                     technician.
                 </p>

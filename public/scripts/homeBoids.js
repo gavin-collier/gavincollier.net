@@ -178,7 +178,7 @@ function setup() {
             boid.draw(ctx);
         }
         if (mousePos != null) {
-            drawCircle(ctx, mousePos.x, mousePos.y, 10)
+            // drawCircle(ctx, mousePos.x, mousePos.y, 10)
         }
         setTimeout(() => {
             requestAnimationFrame(animate);
