@@ -147,7 +147,7 @@ class Boid {
 const canvas = document.getElementById('home-boids');
 const parrentDiv = document.getElementById("Home");
 const ctx = canvas.getContext('2d');
-const dpr = window.devicePixelRatio || 1;
+// const dpr = window.devicePixelRatio || 1;
 let mousePos = null;
 
 parrentDiv.addEventListener('mousemove', function (e) {
@@ -201,8 +201,8 @@ function drawCircle(ctx, x, y, r) {
 }
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
-    ctx.scale(dpr, dpr);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    // ctx.scale(dpr, dpr);
 }
 window.addEventListener('resize', resizeCanvas);
