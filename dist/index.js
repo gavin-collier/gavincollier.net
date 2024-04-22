@@ -19,7 +19,7 @@ app.get('/contact', (req, res) => {
     res.sendFile(reqPath + "/views/contact.html");
 });
 app.get('/resume', (req, res) => {
-    res.download("Gavin Collier - Resume.pdf");
+    res.download(reqPath + "/static/Gavin Collier - Resume.pdf");
 });
 var server = http.createServer(app).listen(port, function () {
     console.log("Server started on " + port);
