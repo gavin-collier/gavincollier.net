@@ -131,7 +131,7 @@ class Boid {
         }
         this.targetVelocity.add(mouseAttraction);
 
-        this.targetVelocity.normalize().limit(-0.5, 0.5);
+        this.targetVelocity.normalize().limit(-0.8, 0.8);
         this.velocity.add(this.targetVelocity.subtract(this.velocity).multiply(0.1));
 
         // Keep boid within canvas
