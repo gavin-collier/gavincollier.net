@@ -5,11 +5,8 @@ function animatedTitle(...texts) {
     let isDeleting = false;
     let displayText = '';
     let textIndex = 0;
-    const cursorChar = '_';
+    const cursor = '_';
     const typingSpeed = 250;    
-    const deletingSpeed = 100;  
-    const pauseTime = 2000;     
-    const blinkSpeed = 530;     
 
     let cursorVisible = true;
     let blinkTimeout;
@@ -17,11 +14,11 @@ function animatedTitle(...texts) {
     function blinkCursor() {
         cursorVisible = !cursorVisible;
         updateTitle();
-        blinkTimeout = setTimeout(blinkCursor, blinkSpeed);
+        blinkTimeout = setTimeout(blinkCursor, 250);
     }
 
     function updateTitle() {
-        document.title = displayText + (cursorVisible ? cursorChar : '');
+        document.title = displayText + (cursorVisible ? cursor : '');
     }
 
     function typeText() {
@@ -30,7 +27,7 @@ function animatedTitle(...texts) {
                 textIndex--;
                 displayText = texts[currentText].substring(0, textIndex);
                 updateTitle();
-                setTimeout(typeText, deletingSpeed);
+                setTimeout(typeText, 100);
             } else {
                 isDeleting = false;
                 currentText++;
@@ -53,7 +50,7 @@ function animatedTitle(...texts) {
                         isDeleting = true;
                         textIndex = texts[currentText].length;
                         typeText();
-                    }, pauseTime);
+                    }, 2000);
                 } else {
                     clearTimeout(blinkTimeout); 
                     cursorVisible = false;
