@@ -26,14 +26,12 @@ function animatedTitle(...texts) {
 
     function typeText() {
         if (isDeleting) {
-            // Deleting text
             if (textIndex > 0) {
                 textIndex--;
                 displayText = texts[currentText].substring(0, textIndex);
                 updateTitle();
                 setTimeout(typeText, deletingSpeed);
             } else {
-                // Once text is deleted, move to the next string
                 isDeleting = false;
                 currentText++;
                 if (currentText >= texts.length) {
