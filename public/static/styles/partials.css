@@ -5,7 +5,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 1000;
 }
 
 .navbar-container {
@@ -36,34 +36,6 @@
     animation: fadeIn 0.5s ease; /* Fade in when becoming sticky */
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Black with slight transparency */
-    text-align: center;
-    padding: 10px 0;
-    z-index: 1;
-    display: none; /* Initially hidden */
-}
-
-/* </navbar> */
-
-/* <footer> */
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Black with slight transparency */
-    text-align: center;
-    z-index: 1;
-    display: none; /* Initially hidden */
-}
-
-
 /* Style for the footer */
 
 footer {
@@ -71,6 +43,7 @@ footer {
     padding: 20px 0;
     color: white;
     text-align: left;
+    z-index: 100;
 }
 
 .footer-content {

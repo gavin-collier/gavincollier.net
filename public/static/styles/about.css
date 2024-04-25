@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #1c1c1e;
+}
+
+#landing {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-color: #2b2b2e;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+#landing hr {
+    margin-top: -168px;
+}
+
+#intro {
+    bottom: 0px;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: normal;
+}
+
+#intro img {
+    transform: scale(.6);
+    margin-left: auto;
+    margin-right: -350px;
+}
+
+#intro #text {
+    width: 30%;
+}
+
+#intro h1 {
+    font-size: 5em;
+    color: rgb(225, 225, 225);
+}
+
+#intro h2 {
+    color: rgb(152, 152, 152);
+}
+
+#intro p {
+    color: rgb(225, 225, 225);
+}
+
+#experience {
+    height: 100vh;
+}

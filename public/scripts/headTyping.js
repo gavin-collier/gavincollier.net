@@ -6,7 +6,7 @@ function animatedTitle(...texts) {
     let displayText = '';
     let textIndex = 0;
     const cursor = '_';
-    const typingSpeed = 250;    
+    const typingSpeed = 250;
 
     let cursorVisible = true;
     let blinkTimeout;
@@ -18,6 +18,9 @@ function animatedTitle(...texts) {
     }
 
     function updateTitle() {
+        if (displayText == "" || displayText == null) {
+            displayText = " ";
+        }
         document.title = displayText + (cursorVisible ? cursor : '');
     }
 
@@ -33,7 +36,10 @@ function animatedTitle(...texts) {
                 currentText++;
                 if (currentText >= texts.length) {
                     clearTimeout(blinkTimeout);
-                    document.title = displayText; 
+                    if (displayText == "" || displayText == null) {
+                        displayText = " ";
+                    }
+                    document.title = displayText;
                     return;
                 }
                 setTimeout(typeText, typingSpeed);
@@ -52,7 +58,7 @@ function animatedTitle(...texts) {
                         typeText();
                     }, 2000);
                 } else {
-                    clearTimeout(blinkTimeout); 
+                    clearTimeout(blinkTimeout);
                     cursorVisible = false;
                     updateTitle();
                 }
@@ -60,6 +66,6 @@ function animatedTitle(...texts) {
         }
     }
 
-    blinkCursor(); 
-    typeText();    
+    blinkCursor();
+    typeText();
 }
