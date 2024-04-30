@@ -29,22 +29,31 @@ body {
     bottom: 0px;
     margin: 0px;
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
-    align-content: normal;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0px 13px;
+	width: 100%;
+	height: 100%;
 }
 
-#intro img {
-    transform: scale(.6);
-    margin-left: auto;
-    margin-right: -350px;
+#intro .filler {
+    width: 5vw;
+    padding-right: 50vw;
+    margin-left: -25vw;
+    background-color: red;
 }
 
 #intro #text {
-    width: 30%;
+    width: 100%;
+}
+
+#intro #photo {
+    align-items: end;
+}
+
+#intro #photo img {
+    transform: scale(.6);
 }
 
 #intro h1 {
