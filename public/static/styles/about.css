@@ -22,8 +22,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     background-color: #2b2b2e;
+
+    border-bottom: #000000 double 3px;
 
     display: flex;
     flex-direction: column;
@@ -83,6 +84,107 @@ body {
     color: rgb(225, 225, 225);
 }
 
-#experience {
-    height: 120vh;
+#skills {
+    height: 75vh;
+    color: rgb(225, 225, 225);
+    text-align: center;
+
+    border-bottom: #000000 double 3px;
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: normal;
+}
+
+#skills h1 {
+    text-align: left;
+    padding-left: 20vw;
+    font-size: 3em;
+}
+
+#skills-grid {
+    padding-top: 5vh;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: normal;
+    gap: 20px;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill img {
+    width: 120px;
+    transform: scale(1);
+    height: 120px;
+    transition: filter 0.3s ease-in-out;
+}
+
+.skill p {
+    margin-top: 10px;
+}
+
+.skill:hover {
+    transform: translateY(-10px);
+}
+
+.skill:hover img {
+    filter: brightness(1.5);
+}
+
+#education {
+    background-color: #2b2b2e;
+    height: 75vh;
+    color: rgb(225, 225, 225);
+
+    border-bottom: #000000 double 3px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: normal;
+}
+
+#education h1 {
+    text-align: left;
+    padding-left: 20vw;
+    font-size: 3em;
+}
+
+#education a {
+    text-align: left;
+    padding-left: 20vw;
+    font-size: 1.5em;
+}
+
+#education a:link {
+    color: #8C1D40 ;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+#education a:visited {
+    color: #8C1D40 ;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+#education ul {
+    text-align: left;
+    padding-left: 20vw;
 }
