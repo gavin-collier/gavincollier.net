@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="/styles/index.css">
     <link rel="stylesheet" href="/styles/partials.css">
     <link rel="icon" type="image/x-icon" href="/images/icon.png">
+
+    <script src="imports/queryloader2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        window.addEventListener('DOMContentLoaded', function() {
+            new QueryLoader2(document.querySelector("body"), {
+                barColor: "#efefef",
+                backgroundColor: "#1c1c1e",
+                percentage: false,
+                barHeight: 1,
+                minimumTime: 500,
+                fadeOutTime: 1500
+            });
+        });
+    </script>
 </head>
 
 <body>

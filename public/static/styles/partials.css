@@ -1,7 +1,7 @@
 /* <navbar> */
 
 .navbar {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
@@ -12,7 +12,6 @@
     background-color: rgba(0, 0, 0, 0.7); /* Black with slight transparency */
     padding: 10px 0;
     text-align: center;
-    transition: background-color 0.3s ease-in-out;
 }
 
 .navbar a {
@@ -29,11 +28,6 @@
     left: 0;
     right: 0;
     z-index: 1;
-}
-
-.sticky .navbar-container {
-    background-color: rgba(0, 0, 0, 0.7); /* Black with slight transparency */
-    animation: fadeIn 0.5s ease; /* Fade in when becoming sticky */
 }
 
 /* Style for the footer */
