@@ -1,4 +1,4 @@
-@keyframes fadeIn {
+@keyframes fadeInHead {
     0% {
         opacity: 0.01;
         transform: translateX(50px);
@@ -42,14 +42,14 @@ body {
     bottom: 0px;
     margin: 0px;
 
-	display: flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
     min-height: 81vh;
 
-    animation-name: fadeIn;
+    animation-name: fadeInHead;
     animation-duration: 2.5s;
     animation-timing-function: ease-in-out;
 }
@@ -61,6 +61,11 @@ body {
 
 #intro #photo {
     margin-left: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+#intro #photo:hover {
+    transform: scale(1.1);
 }
 
 #intro #photo img {
@@ -68,7 +73,7 @@ body {
     transform: scale(.6);
     border: 5px solid white;
     background-color: #121213;
-    box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
 }
 
 #intro h1 {
@@ -90,7 +95,7 @@ body {
     text-align: center;
 
     border-bottom: #000000 double 3px;
-    
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -126,6 +131,33 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
+.skillAnimation {
+    --randDist: 0;
+    --randTime: 2.5s;
+    animation-name: skillSlideIn;
+    animation-duration: var(--randTime);
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes skillSlideIn {
+    0% {
+        /* transform: translateX(var(--randDist)); */
+        transform: translateX(400%);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    90%{
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
 .skill img {
     width: 120px;
     transform: scale(1);
@@ -153,12 +185,56 @@ body {
     border-bottom: #000000 double 3px;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
-    align-items: stretch;
+    justify-content: space-around;
+    align-items: center;
     align-content: normal;
 }
+
+#education #text {
+    height: 60%;
+    width: 100%;
+}
+
+#education #photo {
+    position: relative; 
+    display: block; 
+    width: 100%; 
+    height: auto; 
+    margin: 10px;  
+}
+
+
+.photoAnimation {
+    animation-name: fadeInHead;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-in-out;
+}
+
+#education #photo>img {
+    width: 80%; 
+    height: 75%;
+    clip-path: circle(); 
+    object-fit: cover; 
+    position: relative; 
+    top: 5px; 
+    left: 0; 
+    z-index: 2; 
+}
+
+#education #photo:before {
+    content: '';
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    background: white; 
+    top: .5%; /* Centering the pseudo-element */
+    left: -10%; /* Centering the pseudo-element */
+    clip-path: circle(); 
+    z-index: 1;
+}
+
 
 #education h1 {
     text-align: left;
@@ -173,13 +249,13 @@ body {
 }
 
 #education a:link {
-    color: #8C1D40 ;
+    color: #8C1D40;
     background-color: transparent;
     text-decoration: underline;
 }
 
 #education a:visited {
-    color: #8C1D40 ;
+    color: #8C1D40;
     background-color: transparent;
     text-decoration: underline;
 }
@@ -187,4 +263,30 @@ body {
 #education ul {
     text-align: left;
     padding-left: 20vw;
+}
+
+#story {
+    height: 75vh;
+    color: rgb(225, 225, 225);
+    text-align: center;
+
+    border-bottom: #000000 double 3px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: normal;
+}
+
+#story #text {
+    height: 60%;
+    width: 100%;
+}
+
+#story h1 {
+    text-align: left;
+    padding-left: 20vw;
+    font-size: 3em;
 }
