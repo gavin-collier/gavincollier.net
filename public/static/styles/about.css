@@ -266,7 +266,7 @@ body {
 }
 
 #story {
-    height: 75vh;
+    height: 100vh;
     color: rgb(225, 225, 225);
     text-align: center;
 
@@ -275,18 +275,77 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: flex-end;
+}
+
+
+.story-section {
+    width: 40%;
+    margin: 0px;
+    /* margin-bottom: -20%; */
+    text-align: right;
+}
+
+.story-section h2{
+    text-align: left;
+}
+
+#story #intro {
+    align-self: auto;
+    width: 40%;
+    margin-bottom: -20%;
+    text-align: right;
+
+    padding-bottom: 10vh;
+
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: stretch;
     align-content: normal;
 }
 
-#story #text {
+#story #intro #text {
     height: 60%;
     width: 100%;
+ 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: normal;
+}
+
+#story #intro #photo {
+
+}
+
+#story #intro p {
+    padding-left: 5vw;
 }
 
 #story h1 {
     text-align: left;
     padding-left: 20vw;
     font-size: 3em;
+}
+
+#story #travel {
+    align-self: center;
+    padding-bottom: 7.5vh;
+
+}
+
+#story #hobbies {
+    align-self: flex-end;
+    padding-bottom: 10vh;
+}
+
+#story #hobbies p{
+    padding-right: 5vw;
 }
