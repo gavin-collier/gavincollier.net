@@ -125,8 +125,35 @@ body {
     transition: filter 0.3s ease-in-out;
 }
 
+.skillAnimation {
+    --randDist: 0;
+    --randTime: 2.5s;
+    animation-name: skillSlideIn;
+    animation-duration: var(--randTime);
+    animation-timing-function: ease-in-out;
+}
+
 .skill p {
     margin-top: 10px;
+}
+
+@keyframes skillSlideIn {
+    0% {
+        /* transform: translateX(var(--randDist)); */
+        transform: translateX(400%);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    90%{
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
 }
 
 @media (max-width: 768px) {
