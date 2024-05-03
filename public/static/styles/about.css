@@ -184,16 +184,13 @@ body {
     background-color: #2b2b2e;
     height: 75vh;
     color: rgb(225, 225, 225);
-
     border-bottom: #000000 double 3px;
-
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
     align-content: normal;
-
     overflow: hidden;
 }
 
@@ -203,13 +200,12 @@ body {
 }
 
 #education #photo {
-    position: relative; 
-    display: block; 
-    width: 100%; 
-    height: auto; 
-    margin: 10px;  
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 10px;
 }
-
 
 .photoAnimation {
     animation-name: fadeInHead;
@@ -217,29 +213,28 @@ body {
     animation-timing-function: ease-in-out;
 }
 
-#education #photo>img {
-    width: 80%; 
+#education #photo > img {
+    width: 80%;
     height: 75%;
-    clip-path: circle(); 
-    object-fit: cover; 
-    position: relative; 
-    top: 5px; 
-    left: 0; 
-    z-index: 2; 
+    clip-path: circle();
+    object-fit: cover;
+    position: relative;
+    top: 5px;
+    left: 0;
+    z-index: 2;
 }
 
-#education #photo:before {
+#education #photo::before {
     content: '';
-    position: absolute; 
-    width: 100%; 
-    height: 100%; 
-    background: white; 
-    top: .5%; /* Centering the pseudo-element */
-    left: -10%; /* Centering the pseudo-element */
-    clip-path: circle(); 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    top: 0.5%;
+    left: -10%;
+    clip-path: circle();
     z-index: 1;
 }
-
 
 #education h1 {
     text-align: left;
@@ -253,13 +248,7 @@ body {
     font-size: 1.5em;
 }
 
-#education a:link {
-    color: #8C1D40;
-    background-color: transparent;
-    text-decoration: underline;
-}
-
-#education a:visited {
+#education a:link, #education a:visited {
     color: #8C1D40;
     background-color: transparent;
     text-decoration: underline;
@@ -270,7 +259,48 @@ body {
     padding-left: 20vw;
 }
 
-#story {
+@media (max-width: 1024px) {
+    #education {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #education #text {
+        width: 90%; /* Adjust width to give some padding around */
+        margin: 10px auto; /* Center and add margin */
+    }
+
+    #education h1, #education a {
+        padding-left: 5vw; /* Reduce padding for smaller screens */
+    }
+
+    #education #photo::before {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+    #education h1 {
+        font-size: 2.5em; /* Reduce font size for smaller screens */
+    }
+
+    #education a {
+        font-size: 1.2em; /* Adjust link font size */
+    }
+
+    #education ul {
+        padding-left: 5vw;
+    }
+}
+
+@media (max-width: 480px) {
+    #education h1 {
+        font-size: 2em; /* Even smaller font size for very small screens */
+    }
+}
+
+
+/* #story {
     height: 100vh;
     color: rgb(225, 225, 225);
     text-align: center;
@@ -292,7 +322,7 @@ body {
     width: 40%;
     margin: 0px;
     /* margin-bottom: -20%; */
-    text-align: right;
+   /* text-align: right;
 }
 
 .story-section h2{
@@ -355,4 +385,114 @@ body {
 
 #story #hobbies p{
     padding-right: 5vw;
+} */
+
+#story {
+    height: 100vh;
+    color: rgb(225, 225, 225);
+    text-align: center;
+    border-bottom: #000000 double 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.story-section {
+    width: 40%;
+    margin: 0px;
+    text-align: right;
+}
+
+.story-section h2 {
+    text-align: left;
+}
+
+#story #intro {
+    align-self: auto;
+    width: 40%;
+    margin-bottom: -20%;
+    text-align: right;
+    padding-bottom: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+#story #intro #text {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+#story h1 {
+    text-align: left;
+    padding-left: 20vw;
+    font-size: 3em;
+}
+
+#story #travel {
+    align-self: center;
+    padding-bottom: 7.5vh;
+}
+
+#story #hobbies {
+    align-self: flex-end;
+    padding-bottom: 7.5vh;
+}
+
+#story #hobbies p {
+    padding-right: 5vw;
+}
+
+@media (max-width: 1024px) {
+    #story {
+        height: auto; /* Adjust height to be auto on smaller screens */
+        align-items: center; /* Center align items */
+    }
+
+    #story #intro {
+        border-bottom: white solid 2px;
+        padding-bottom: 0;
+        margin-bottom: 0%;
+    }
+
+    .story-section, #story #intro {
+        width: 80%; /* Increase width to take more space on smaller screens */
+        text-align: center; /* Center text for better readability */
+    }
+
+    #story h1 {
+        padding-left: 10vw; /* Reduce padding */
+        font-size: 2.5em; /* Reduce font size */
+    }
+
+    #story #intro p, #story #hobbies p {
+        padding-left: 3vw; /* Adjust padding */
+        padding-right: 3vw; /* Adjust padding */
+    }
+}
+
+@media (max-width: 768px) {
+    .story-section, #story #intro {
+        width: 95%; /* Further increase width for very small screens */
+    }
+
+    #story h1 {
+        font-size: 2em; /* Even smaller font size for readability */
+        padding-left: 5vw; /* Less padding */
+    }
+
+    #story h2 {
+        padding-left: 10vh;
+    }
+
+    #story #travel, #story #hobbies {
+        padding-bottom: 5vh; /* Reduce padding-bottom */
+    }
 }

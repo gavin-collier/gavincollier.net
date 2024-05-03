@@ -19,11 +19,13 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.sendFile(reqPath + "/views/about.html");
 });
-app.get('/contact', (req, res) => {
-    res.sendFile(reqPath + "/views/contact.html");
-});
 app.get('/resume', (req, res) => {
     res.download(reqPath + "/static/Gavin Collier - Resume.pdf");
+});
+
+// Redirect 404 to home page
+app.use((req, res) => {
+    res.redirect('/');
 });
 
 var server = http.createServer(app).listen(port, function () {
