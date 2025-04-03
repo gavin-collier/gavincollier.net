@@ -2,8 +2,8 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: #1c1c1e;
     overflow-y: hidden;
+    background-color: #1c1c1e;
 }
 
 @keyframes fadeInHome {
@@ -11,7 +11,6 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -20,14 +19,12 @@ body {
 
 #Home {
     position: relative;
-    top: 0%;
-    padding: 0%;
+    top: 0;
+    padding: 0;
     margin-top: -2vh;
     width: 100%;
     height: 102vh;
-    animation-name: fadeInHome;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
+    animation: fadeInHome 1s ease-in-out;
 }
 
 #Home .navbar {
@@ -50,7 +47,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 #text-box {
@@ -65,14 +61,8 @@ body {
     color: rgb(169, 169, 169);
 }
 
-#text-box a:link {
-    color: #8C1D40 ;
-    background-color: transparent;
-    text-decoration: underline;
-}
-
-#text-box a:visited {
-    color: #8C1D40 ;
+#text-box a:link, #text-box a:visited {
+    color: #8C1D40;
     background-color: transparent;
     text-decoration: underline;
 }
@@ -81,23 +71,16 @@ body {
     width: 25vh;
     margin-left: 15px;
     margin-top: 10px;
-
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     gap: 10px;
-
     transition: transform .2s;
-
 }
 
 #icons img:hover {
     transform: scale(1.2);
 }
-
-/* </Parallax Header Img> */
-
-/* <Body Subjects> */
 
 .subject {
     height: 76vh;
@@ -109,13 +92,46 @@ body {
     margin-top: 10vh;
 }
 
-/* <about> */
-
 #gavinMountan {
     max-height: 50%;
     max-width: 30%;
 }
 
-/* </about> */
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 1024px) {
+    #foreground {
+        width: 50vw; /* Increase width on smaller screens */
+        top: 5vh;
+        left: 5vw;
+    }
 
-/* </Body Subjects> */
+    #text-box {
+        padding: 5px; /* Less padding */
+    }
+}
+
+@media (max-width: 768px) {
+    #Home {
+        height: auto;
+        margin-top: 0;
+    }
+
+    #foreground {
+        min-width: 300px; /* Adjust min-width for smaller screens */
+        width: 80vw; /* Further increase width for better readability */
+        top: 5vh;
+        left: 10vw;
+    }
+}
+
+@media (max-width: 480px) {
+    #text-box h1 {
+        font-size: 1.5em; /* Smaller text for smaller screens */
+    }
+
+    #icons {
+        justify-content: center; /* Stack icons vertically on very small screens */
+        width: 100%; /* Use full width for icons */
+        margin-left: 0; /* Align icons to the left */
+    }
+}
