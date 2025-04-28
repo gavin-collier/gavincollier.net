@@ -1,0 +1,522 @@
+{
+  "nodes": [
+    {
+      "id": "Self and Soul",
+      "x": 600,
+      "y": 150,
+      "type": "Other",
+      "cost": 0,
+      "description": "You gain the ability to atempt physics defying physical acctions. The DC will be determied by your relitive power to the difficualty of the task.",
+      "requirements": {},
+      "exclusions": []
+    },
+
+    {
+      "id": "Above Matter",
+      "x": 600,
+      "y": 250,
+      "type": "Defense",
+      "cost": 1,
+      "description": "You will only take damage when there is intent to harm you.",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Body of Life",
+      "x": 600,
+      "y": 350,
+      "type": "Defense",
+      "cost": 1,
+      "description": "When you are healed. Take the maximum posable roll of the dice",
+      "requirements": {},
+      "exclusions": ["Body of Blades", "Body of Momentum"]
+    },
+    {
+      "id": "Body of Blades",
+      "x": 400,
+      "y": 350,
+      "type": "Attack",
+      "cost": 1,
+      "description": "When you take the attack action you make make a aditional attack. This stacks with the extra attack feture",
+      "requirements": {},
+      "exclusions": ["Body of Life", "Body of Momentum"]
+    },
+    {
+      "id": "Body of Momentum",
+      "x": 800,
+      "y": 350,
+      "type": "Speed",
+      "cost": 1,
+      "description": "When you take the dash action, first double your movement speed for the reminder of the round",
+      "requirements": {},
+      "exclusions": ["Body of Life", "Body of Blades"]
+    },
+
+    {
+      "id": "Overwhelming Strike",
+      "x": 350,
+      "y": 450,
+      "type": "Attack",
+      "cost": 2,
+      "description": "After you make a attack, but before it hits. You may choose to subtrace any amount from the role. Half the amount subtracted is added to the damage delt",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Body and Soul",
+      "x": 600,
+      "y": 450,
+      "type": "Defense",
+      "cost": 2,
+      "description": "As your body and soul are the same. You may replace any mental saving though with a constitution saving though.",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Burst of Speed",
+      "x": 850,
+      "y": 450,
+      "type": "Speed",
+      "cost": 2,
+      "description": "As a bonus action, double your movement speed. Attacks of opportunity against you are made with disadvantage.",
+      "requirements": {},
+      "exclusions": []
+    },
+
+    {
+      "id": "Stronger Stikes",
+      "x": 50,
+      "y": 550,
+      "type": "Attack",
+      "cost": 3,
+      "description": "You no longer half the damage from Overwhelming Strike",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Precision Strike",
+      "x": 50,
+      "y": 650,
+      "type": "Attack",
+      "cost": 2,
+      "description": "Any amount rolled over the AC is automaticly converted to damage",
+      "requirements": { "Attack": 8 },
+      "exclusions": []
+    },
+
+    {
+      "id": "Dimensional Constant",
+      "x": 600,
+      "y": 600,
+      "type": "Other",
+      "cost": 2,
+      "description": "You may attack dimensional effects. Gain a +2 to hit bonus against entities with a shield or active dimensional effect. Additionally, your attacks pierce though dimensions, allowing you to destroy portals and other dimensional effects.",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Dimensional Shift",
+      "x": 600,
+      "y": 700,
+      "type": "Defense",
+      "cost": 2,
+      "description": "Your base AC increases by 2",
+      "requirements": {},
+      "exclusions": ["Dimensional Blur"]
+    },
+    {
+      "id": "Elemental Resistance",
+      "x": 600,
+      "y": 800,
+      "type": "Defense",
+      "cost": 1,
+      "description": "Pick a damage type, you gain resistances to that type of damage",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Elemental Immunity",
+      "x": 600,
+      "y": 900,
+      "type": "Defense",
+      "cost": 3,
+      "description": "Pick a damage type you currently resist, you become immune to that type of damage",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Friend of the Elements",
+      "x": 600,
+      "y": 1000,
+      "type": "Defense",
+      "cost": 3,
+      "description": "Pick a magical damage type you are immune to. When you are hit for that damage type restore hitpoints instead",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Adaptive Resilience",
+      "x": 600,
+      "y": 1100,
+      "type": "Defense",
+      "cost": 1,
+      "description": "When you take damage from a particular type (bludgeoning, piercing, slashing, fire, cold, etc.), you can use your reaction to gain resistance to that damage type for the next minute. You can only adapt to one damage type at a time.",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Spell Immunity",
+      "x": 600,
+      "y": 1200,
+      "type": "Defense",
+      "cost": 3,
+      "description": "You are immune to spell of a level lower than you profecancy bonus (max of 6)",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Ironclad Resolve",
+      "x": 600,
+      "y": 1300,
+      "type": "Defense",
+      "cost": 4,
+      "description": "As an action your sheer determination manifests as defensive force, protecting you from harm. The fist time until the start of your next turn that you take damage negate it.",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Dimensional Anchor",
+      "x": 600,
+      "y": 1400,
+      "type": "Defense",
+      "cost": 4,
+      "description": "you cannot be moved from your position aginst your will by any means, and all teleportation effects within a 30-foot radius are blocked. Creatures attempting to teleport or be teleported into or out of the area must succeed on a Intelligence saving throw (DC=10+Cha+Prof) or the effect fails.",
+      "requirements": { "Other": 3 },
+      "exclusions": ["Faster than the World"]
+    },
+
+    {
+      "id": "Dimensional Strike",
+      "x": 350,
+      "y": 700,
+      "type": "Attack",
+      "cost": 2,
+      "description": "Gain a +2 to hit for all attacks",
+      "requirements": {},
+      "exclusions": ["Dimensional Shift"]
+    },
+    {
+      "id": "Savage Critcals",
+      "x": 350,
+      "y": 800,
+      "type": "Attack",
+      "cost": 2,
+      "description": "add you attack bouns to the damage multiplied by a critcal hit",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Pure Force",
+      "x": 350,
+      "y": 900,
+      "type": "Attack",
+      "cost": 2,
+      "description": "When you strike an object or a creature, the force of your blow can ignore conventional resistance. Armor, shields, and even magical barriers offer no protection as your physical power breaks through them as if they weren\u2019t there.",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Shockwave Impact",
+      "x": 350,
+      "y": 1000,
+      "type": "Attack",
+      "cost": 2,
+      "description": "Strike the ground or an object with full force, the impact sends out a shockwave that can knock back or stagger all creatures in a wide radius. The force can even destabilize structures, creating temporary cover or obstacles. All creatures within 15ft must pass a DC 14 DEX save or be knocked prone.",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Incoming!",
+      "x": 350,
+      "y": 1100,
+      "type": "Attack",
+      "cost": 3,
+      "description": "For each 5 feet of movement you have spent this round, add 1 to the damage to your next attack (Max of 100 damage)",
+      "requirements": {
+        "Speed": 5
+      },
+      "exclusions": []
+    },
+    {
+      "id": "Cleave the Horizon",
+      "x": 350,
+      "y": 1200,
+      "type": "Attack",
+      "cost": 3,
+      "description": "When you make a melee attack, you can choose to target a line 30 feet long and 5 feet wide. All creatures in the line must make a DC 15 Dexterity saving throw, taking 4d6 [weapon type] damage on a failed save or half as much on a successful one.",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Echo Strike",
+      "x": 350,
+      "y": 1300,
+      "type": "Attack",
+      "cost": 4,
+      "description": "When you make a melee weapon attack as a bonus action, after the initial attack, you can target up to two additional creatures within 30 feet, or the original target, with echo attacks. Each echo attack is a copy of the initial attack, dealing half the damage of the original. Each echo requires a new attack role.",
+      "requirements": {
+        "Speed": 3,
+        "Other": 3
+      },
+      "exclusions": []
+    },
+    {
+      "id": "Reality Rend",
+      "x": 350,
+      "y": 1400,
+      "type": "Attack",
+      "cost": 3,
+      "description": "As an action you make a single attack that bypasses all damage resistances, immunities, and effects that would normally prevent damage",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Worldbreaker",
+      "x": 350,
+      "y": 1500,
+      "type": "Attack",
+      "cost": 10,
+      "description": "You make make an logic defying attack is capable of breaking through anything, whether it\u2019s a mountain, a fortress, or an enemy's defenses. When you attack, ignores all forms of damage resistance, immunity, and special defenses.",
+      "requirements": { "Other": 3 },
+      "exclusions": []
+    },
+
+    {
+      "id": "Dimensional Blur",
+      "x": 1050,
+      "y": 700,
+      "type": "Speed",
+      "cost": 2,
+      "description": "Your base movement speed increased by 45",
+      "requirements": {},
+      "exclusions": ["Dimensional Strike"]
+    },
+
+    {
+      "id": "Impossible Agility",
+      "x": 825,
+      "y": 750,
+      "type": "Speed",
+      "cost": 2,
+      "description": "You can move with such speed and precision that you seem to blur through space. You can pass through areas where movement would typically be impossible, such as a wall of blades or a collapsing structure, without taking any damage.",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Can't Stop, Won't Stop",
+      "x": 825,
+      "y": 850,
+      "type": "Speed",
+      "cost": 2,
+      "description": "You become immune to the time-stop spell",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "More to Do",
+      "x": 825,
+      "y": 950,
+      "type": "Speed",
+      "cost": 2,
+      "description": "you may take two reactions in a round",
+      "requirements": {},
+      "exclusions": []
+    },
+
+
+    {
+      "id": "Gravity Weight",
+      "x": 1050,
+      "y": 800,
+      "type": "Other",
+      "cost": 3,
+      "description": "you can manipulate gravity within a small area around you. You can make a surface \u201cup\u201d or \u201cdown\u201d at will, enabling you to walk on walls, ceilings, or even defy falling entirely.",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Supersonic Dash",
+      "x": 1050,
+      "y": 900,
+      "type": "Speed",
+      "cost": 2,
+      "description": "You can move up to 500 feet in a straight line as a single action. All creatures within 10 feet of your path must succeed on a DC 15 Constitution saving throw or be stunned until the end of their next turn due to the shockwave.",
+      "requirements": {
+        "Attack": 4
+      },
+      "exclusions": []
+    },
+    {
+      "id": "Fast",
+      "x": 1050,
+      "y": 1000,
+      "type": "Speed",
+      "cost": 2,
+      "description": "your base speed increases by 30",
+      "requirements": {},
+      "exclusions": []
+    },
+
+    {
+      "id": "Clap Back",
+      "x": 1350,
+      "y": 1150,
+      "type": "Attack",
+      "cost": 2,
+      "description": "When you doge an attack or spell, you may make an attack of oppertunity",
+      "requirements": {
+        "Speed": 4
+      },
+      "exclusions": []
+    },
+    {
+      "id": "Reacter",
+      "x": 1350,
+      "y": 1250,
+      "type": "Speed",
+      "cost": 2,
+      "description": "you may take 3 reactions per round",
+      "requirements": { "More to Do": "Unlocked" },
+      "exclusions": []
+    },
+    {
+      "id": "Missed!",
+      "x": 1350,
+      "y": 1350,
+      "type": "Speed",
+      "cost": 4,
+      "description": "When you are targeted by an AOE or gurentied hit effect, make a dextarity save aginst the attacker. Should you suceed you doge the effect",
+      "requirements": {
+        "Defense": 5
+      },
+      "exclusions": []
+    },
+
+    {
+      "id": "Faster",
+      "x": 1050,
+      "y": 1100,
+      "type": "Speed",
+      "cost": 4,
+      "description": "you base speed increases by 40",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Fasterer",
+      "x": 1050,
+      "y": 1200,
+      "type": "Speed",
+      "cost": 4,
+      "description": "your base speed increases by 50",
+      "requirements": {},
+      "exclusions": []
+    },
+    {
+      "id": "Fastest",
+      "x": 1050,
+      "y": 1300,
+      "type": "Speed",
+      "cost": 3,
+      "description": "At the end of each round of combat, increase your speed by 25",
+      "requirements": {},
+      "exclusions": []
+    },
+
+    {
+      "id": "Running!",
+      "x": 1350,
+      "y": 1500,
+      "type": "Speed",
+      "cost": 5,
+      "description": "While not in combat, your speed becomes 10000",
+      "requirements": {
+        "Other": 3
+      },
+      "exclusions": []
+    },
+
+    {
+      "id": "In the World",
+      "x": 1050,
+      "y": 1450,
+      "type": "Speed",
+      "cost": 10,
+      "description": "Your speed is 15000",
+      "requirements": {},
+      "exclusions": ["Temporal Acceleration"]
+    }
+  ],
+  "links": [
+    { "from": "Self and Soul", "to": "Above Matter" },
+
+    { "from": "Above Matter", "to": "Body of Life" },
+    { "from": "Above Matter", "to": "Body of Blades" },
+    { "from": "Above Matter", "to": "Body of Momentum" },
+
+    { "from": "Body of Life", "to": "Body and Soul" },
+    { "from": "Body of Blades", "to": "Overwhelming Strike" },
+    { "from": "Body of Momentum", "to": "Burst of Speed" },
+
+    { "from": "Overwhelming Strike", "to": "Body and Soul" },
+    { "from": "Burst of Speed", "to": "Body and Soul" },
+    { "from": "Body and Soul", "to": "Overwhelming Strike" },
+    { "from": "Body and Soul", "to": "Burst of Speed" },
+
+    { "from": "Overwhelming Strike", "to": "Stronger Stikes" },
+    { "from": "Stronger Stikes", "to": "Precision Strike" },
+
+    { "from": "Body and Soul", "to": "Dimensional Constant" },
+    { "from": "Dimensional Constant", "to": "Dimensional Strike" },
+    { "from": "Dimensional Constant", "to": "Dimensional Shift" },
+    { "from": "Dimensional Constant", "to": "Dimensional Blur" },
+
+    { "from": "Dimensional Shift", "to": "Elemental Resistance" },
+    { "from": "Elemental Resistance", "to": "Elemental Immunity" },
+    { "from": "Elemental Immunity", "to": "Friend of the Elements" },
+    { "from": "Friend of the Elements", "to": "Adaptive Resilience" },
+    { "from": "Adaptive Resilience", "to": "Spell Immunity" },
+    { "from": "Spell Immunity", "to": "Ironclad Resolve" },
+    { "from": "Ironclad Resolve", "to": "Dimensional Anchor" },
+
+    { "from": "Dimensional Strike", "to": "Savage Critcals" },
+    { "from": "Savage Critcals", "to": "Pure Force" },
+    { "from": "Pure Force", "to": "Shockwave Impact" },
+    { "from": "Shockwave Impact", "to": "Incoming!" },
+    { "from": "Incoming!", "to": "Cleave the Horizon" },
+    { "from": "Cleave the Horizon", "to": "Echo Strike" },
+    { "from": "Echo Strike", "to": "Reality Rend" },
+    { "from": "Reality Rend", "to": "Worldbreaker" },
+
+    { "from": "Dimensional Blur", "to": "Gravity Weight" },
+    { "from": "Gravity Weight", "to": "Supersonic Dash" },
+    { "from": "Supersonic Dash", "to": "Fast" },
+    { "from": "Fast", "to": "Faster" },
+
+    { "from": "Dimensional Blur", "to": "Impossible Agility" },
+    { "from": "Dimensional Shift", "to": "Impossible Agility" },
+    { "from": "Impossible Agility", "to": "Can't Stop, Won't Stop" },
+    { "from": "Can't Stop, Won't Stop", "to": "More to Do" },
+
+
+    { "from": "Fast", "to": "Clap Back" },
+    { "from": "Clap Back", "to": "Reacter" },
+    { "from": "Faster", "to": "Reacter" },
+    { "from": "Reacter", "to": "Missed!" },
+
+    { "from": "Faster", "to": "Fasterer" },
+    { "from": "Fasterer", "to": "Fastest" },
+    { "from": "Fastest", "to": "In the World" },
+    { "from": "Fastest", "to": "Running!" }
+  ]
+}

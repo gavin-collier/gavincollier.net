@@ -29,7 +29,7 @@ app.get('/masquerade/herald', (req, res) => {
 });
 
 app.get('/masquerade/herald/skilltree.json', (req, res) => {
-    res.sendFile(reqPath + "/static/JSON/skillTreeTest.json");
+    res.sendFile(reqPath + "/static/JSON/skillTree.json");
 });
 
 

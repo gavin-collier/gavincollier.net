@@ -28,15 +28,21 @@ function draw() {
 }
 
 function drawNode(node) {
-    const w = 160, h = 40;
+    const w = 160, h = 60;
     ctx.fillStyle = node.color;
     ctx.fillRect(node.x, node.y, w, h);
     ctx.strokeStyle = "#fff";
     ctx.strokeRect(node.x, node.y, w, h);
+  
+    // Text settings
     ctx.fillStyle = "#fff";
-    ctx.font = "14px sans-serif";
-    ctx.fillText(node.label, node.x + 10, node.y + 25);
-}
+    ctx.font = "16px sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+  
+    // Draw text centered
+    ctx.fillText(node.id, node.x + w / 2, node.y + h / 2);
+  }
 
 function drawCurve(from, to) {
     const startX = from.x + 80;
@@ -119,15 +125,15 @@ canvas.addEventListener('wheel', e => {
 
 function openSidebar(node) {
     console.log("Opening SideBar!");
-    sidebar.style.display = "block";
-    nodeTitle.textContent = node.label || "Unknown Skill";
+    nodeTitle.textContent = node.id || "Unknown Skill";
+    nodeTitle.style.color = node.color;
     nodeTooltip.textContent = node.tooltip || "No description available.";
-    sidebar.style.width = "35vw"; // Adjust as needed
+    sidebar.style.right = "5vw"
   }
 
 closeSidebarBtn.addEventListener('click', () => {
-    sidebar.style.display = "none";
-    sidebar.style.width = "0"; // Adjust as needed
+
+    sidebar.style.right = "-50vw"
 });
 
 async function loadJSON() {

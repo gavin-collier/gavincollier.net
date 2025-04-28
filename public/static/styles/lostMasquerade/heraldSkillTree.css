@@ -1,98 +1,154 @@
 @keyframes fadeInHead {
-    0% {
-        opacity: 0.01;
-        transform: translateX(50px);
-    }
+  0% {
+    opacity: 0.01;
+    transform: translateX(50px);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: #1c1c1e;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #1c1c1e;
 }
 
 #landing {
-    position: relative;
-    top: 0;
-    padding: 0;
-    margin-top: -2vh;
-    width: 100%;
-    height: 102vh;
-    animation: fadeInHome 1s ease-in-out;
+  position: relative;
+  top: 0;
+  padding: 0;
+  margin-top: -2vh;
+  width: 100%;
+  height: 102vh;
+  animation: fadeInHome 1s ease-in-out;
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-    animation-name: fadeIn;
-    /* Specify the animation name */
-    animation-duration: 1s;
-    /* Animation duration */
-    animation-timing-function: ease-in-out;
-    /* Timing function */
+  animation-name: fadeIn;
+  /* Specify the animation name */
+  animation-duration: 1s;
+  /* Animation duration */
+  animation-timing-function: ease-in-out;
+  /* Timing function */
 }
 
 #landing .navbar {
-    position: absolute;
+  position: absolute;
 }
 
 #skillCanvas-container {
-    position: relative;
-    top: 0;
-    padding: 0;
-    margin-top: -2vh;
-    width: 100%;
-    height: 102vh;
-    animation: fadeInHome 1s ease-in-out;
+  position: relative;
+  top: 0;
+  padding: 0;
+  margin-top: -2vh;
+  width: 100%;
+  height: 102vh;
+  animation: fadeInHome 1s ease-in-out;
 }
 
 #skillCanvas {
-    width: 100vw;
-    height: 100vh;
-    display: block;
-    z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: 1;
 }
 
-  #sidebar {
-    position: absolute;
-    min-width: 400px;
-    top: 10vh;
-    left: 10vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#sidebar {
+  position: absolute;
+  top: 10vh;
+  right: -50vw;
+  display: block;
 
-    flex-grow: 35vw;
-    width: 30vw;
-    margin-right: 4%;
-    height: 75vh;
-    background-color: #6b6b6bc0;
-    overflow-x: hidden;
-    transition: 0.5s;
-    z-index: 2;
+  width: 25vw; 
+  height: 75vh;
+  background-color: #6b6b6bc0;
+  overflow-x: hidden;
+  transition: 0.9s ease;
+  z-index: 2;
 }
-  #sidebar h2 {
-    color: #f1c40f;
-    margin-top: 0;
+
+#sidebar h1 {
+  color: #f1c40f;
+  margin-top: 0;
+}
+
+#closeSidebar {
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  float: right;
+}
+
+#nodeDetails {
+  color: #f0f0f0;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+#nodeDetails p {
+  margin: 6px 0;
+}
+
+.tooltip-text {
+  font-style: italic;
+  color: #ddd;
+}
+
+#nodeDetails {
+  padding-left: 1%;
+}
+
+#buyButton {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10%;
+  margin-left: 1%;
+  display: block;
+}
+
+#buyButton:hover:enabled {
+  background-color: #27ae60;
+  transform: scale(1.05);
+}
+
+#buyButton:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Optional: Add a slight upward movement */
   }
-  #closeSidebar {
-    background: #c0392b;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    float: right;
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
 @media (max-width: 768px) {
-    #skillCanvas-container {
-        height: auto;
-        margin-top: 0;
-    }
+  #skillCanvas-container {
+    height: auto;
+    margin-top: 0;
+  }
 }

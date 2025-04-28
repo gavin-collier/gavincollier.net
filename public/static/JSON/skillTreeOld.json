@@ -1,0 +1,18 @@
+{
+    // Purple: #a85fe3 | Orange: #f0b55d | Red: #e27f6d | Blue: #7bb8e7 | White: #f0f0f0
+    // { "id": "Template", "x": 600, "y": 150, "color": "#", "cost": 0, "tooltip": "Description", "exclusions": ""},
+    "nodes": [
+      { "id": "Soul of the Self", "x": 600, "y": 50, "color": "#a85fe3", "cost": 0, "tooltip": "You gain the ability to atempt physics defying physical acctions. The DC will be determied by your relitive power to the difficualty of the task." },
+      { "id": "Above Matter", "x": 600, "y": 150, "color": "#f0b55d", "cost": 1, "tooltip": "You will only take damage when there is intent to harm you." },
+      { "id": "Body of Blades", "x": 400, "y": 250, "color": "#e27f6d", "cost": 1, "tooltip": "When you take the attack action you make make a aditional attack. This stacks with the extra attack feture" },
+      { "id": "Body of Life", "x": 600, "y": 250, "color": "#f0b55d", "cost": 1, "tooltip": "When you are healed. Take the maximum posable roll of the dice"},
+      { "id": "Body of Momentum", "x": 800, "y": 250, "color": "#7bb8e7", "cost": 1, "tooltip": "When you take the dash action, first double your movement speed for the reminder of the round"}
+    ],
+    "links": [
+      { "from": "Soul of the Self", "to": "Above Matter" },
+      { "from": "Above Matter", "to": "Body of Blades" },
+      { "from": "Above Matter", "to": "Body of Life" },
+      { "from": "Above Matter", "to": "Body of Momentum" }
+    ]
+  }
+  
