@@ -1,5 +1,5 @@
 const canvas = document.getElementById('skillCanvas');
-const parrentDiv = document.getElementById("skillCanvas-container")
+const parentDiv = document.getElementById("skillCanvas-container")
 const ctx = canvas.getContext("2d");
 
 const TYPE_COLORS = {
@@ -179,7 +179,7 @@ function openSidebar(node) {
         detailsBox.innerHTML = `
         <p><strong>Type:</strong> ${node.type}</p>
         <p><strong>Cost:</strong> ${node.cost}</p>
-        ${node.requirements ? `<p><strong>Requirements:</strong> ${Object.entries(node.requirements).map(([t, v]) => `${t}: ${v}`).join(', ')}</p>` : ''}
+        ${node.requirements ? `<p><strong>Requirements:</strong> ${Object.entries(node.requirements).map(([t, v]) => `(${t} ${v})`).join(', ')}</p>` : ''}
         ${node.exclusions?.length ? `<p><strong>Excludes:</strong> ${node.exclusions.join(', ')}</p>` : ''}
         <p class="tooltip-text">${node.description || 'No description provided.'}</p>
       `;
