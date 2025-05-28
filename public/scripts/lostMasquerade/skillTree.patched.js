@@ -79,9 +79,9 @@ function drawNode(node) {
 
 function drawCurve(from, to) {
     const startX = from.x + 80;
-    const startY = from.y + 60;
+    const startY = from.y + 40;
     const endX = to.x + 80;
-    const endY = to.y;
+    const endY = to.y + 40;
   
     const cp1X = startX;
     const cp1Y = (startY + endY) / 2;

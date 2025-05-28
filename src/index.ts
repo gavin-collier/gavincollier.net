@@ -13,6 +13,9 @@ app.use(express.static('public/static'));
 app.use(express.static('public/views'));
 app.use(express.static('public/scripts'));
 
+app.use(express.static('public/skill-tree-editor/public'));
+
+
 app.get('/', (req, res) => {
     res.sendFile(reqPath + "/views/index.html");
 });
@@ -26,6 +29,10 @@ app.get('/resume', (req, res) => {
 //Lost Masquerade 
 app.get('/masquerade/herald', (req, res) => {
     res.sendFile(reqPath + "/views/lostMasquerade/heraldSkillTree.html");
+});
+
+app.get('/masquerade/herald/edit', (req, res) => {
+    res.sendFile(reqPath + "/skill-tree-editor/public/views/editor.html");
 });
 
 app.get('/masquerade/herald/skilltree.json', (req, res) => {

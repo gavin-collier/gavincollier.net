@@ -1,0 +1,23 @@
+{
+  "name": "skill-tree-editor",
+  "version": "1.0.0",
+  "description": "A dynamic editor for generating and editing the skillTree.json file for the Lost Masquerade project.",
+  "main": "public/scripts/editor.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "skill-tree-editor": "file:"
+  },
+  "keywords": [
+    "skill tree",
+    "editor",
+    "json",
+    "dynamic"
+  ],
+  "author": "Gavin Collier",
+  "license": "ISC"
+}

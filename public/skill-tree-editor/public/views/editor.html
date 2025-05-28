@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Tree Editor</title>
+    <link rel="stylesheet" type="text/css" href="\static\styles\editor.css">
+</head>
+
+<body>
+    <div id="editor-container">
+        <h1>Skill Tree Editor</h1>
+        <div id="skill-tree-display">
+            <canvas id="skillCanvas"></canvas>
+        </div>
+        <div id="node-form">
+            <h2>Edit Node</h2>
+            <label for="nodeId">Node ID:</label>
+            <input type="text" id="nodeId" placeholder="Enter Node ID">
+            <label for="nodeType">Node Type:</label>
+            <select id="nodeType">
+                <option value="Other">Other</option>
+                <option value="Defense">Defense</option>
+                <option value="Attack">Attack</option>
+                <option value="Speed">Speed</option>
+                <option value="Energy">Energy</option>
+            </select>
+            <label for="nodeCost">Node Cost:</label>
+            <input type="number" id="nodeCost" placeholder="Enter Node Cost">
+            <label for="nodeX">X:</label>
+            <input type="number" id="nodeX" placeholder="X position">
+            <label for="nodeY">Y:</label>
+            <input type="number" id="nodeY" placeholder="Y position">
+            <label for="nodeDescription">Description:</label>
+            <textarea id="nodeDescription" placeholder="Enter Node Description" style="min-height:100px;height:120px;width:100%;resize:vertical;"></textarea>
+
+            <!-- Exclusions Editor -->
+            <label>Exclusions:</label>
+            <div id="exclusionsEditor"></div>
+            <!-- The Add Exclusion button will be created by JS -->
+
+            <!-- Requirements Editor -->
+            <label>Requirements:</label>
+            <div id="requirementsEditor"></div>
+            <div style="margin-bottom:12px;margin-top:2px;">
+              <button type="button" id="addRequirementBtn" class="editor-btn" style="background:#888;display:inline-block;">Add Requirement</button>
+            </div>
+            <button id="addNodeBtn">Add Node</button>
+            <button id="editNodeBtn">Update Node</button>
+            <button id="deleteNodeBtn">Delete Node</button>
+        </div>
+        <div id="connection-form">
+            <h2>Modify Connection</h2>
+            <label for="fromNode">From Node ID:</label>
+            <input type="text" id="fromNode" placeholder="From Node ID">
+            <label for="toNode">To Node ID:</label>
+            <input type="text" id="toNode" placeholder="To Node ID">
+            <button id="updateConnectionBtn">Update Connection</button>
+        </div>
+        <div id="move-mode-help" style="position:absolute;top:50px;left:10px;z-index:11;background:#fffbe6;border:1px solid #f9e79f;padding:8px 14px;border-radius:6px;box-shadow:0 2px 8px #f9e79f88;display:none;font-size:0.98em;max-width:260px;">
+            <b>Move Mode:</b> Shift+Click to multi-select nodes. Drag any selected node to move all. Release to snap to grid.
+        </div>
+    </div>
+    <script src="/scripts/editor.js" type="text/javascript"></script>
+    <script>
+        // Show/hide move mode help
+        const moveModeHelp = document.getElementById('move-mode-help');
+        const observer = new MutationObserver(() => {
+            if (window.moveMode) {
+                moveModeHelp.style.display = 'block';
+            } else {
+                moveModeHelp.style.display = 'none';
+            }
+        });
+        observer.observe(document.body, { attributes: true, childList: true, subtree: true });
+
+        // --- Requirements Editor Logic ---
+        const TYPE_OPTIONS = ["Other", "Defense", "Attack", "Speed", "Energy"];
+        function renderRequirementsEditor(requirements) {
+            const container = document.getElementById('requirementsEditor');
+            container.innerHTML = '';
+            if (!requirements || Object.keys(requirements).length === 0) {
+                const none = document.createElement('div');
+                none.textContent = 'None';
+                none.style.color = '#888';
+                none.style.fontStyle = 'italic';
+                none.style.marginBottom = '6px';
+                container.appendChild(none);
+                container._requirements = {};
+                return;
+            }
+            Object.entries(requirements).forEach(([type, cost], idx) => {
+                const row = document.createElement('div');
+                row.style.display = 'flex';
+                row.style.gap = '8px';
+                row.style.marginBottom = '6px';
+                // Type dropdown
+                const typeSel = document.createElement('select');
+                TYPE_OPTIONS.forEach(opt => {
+                    const o = document.createElement('option');
+                    o.value = opt;
+                    o.textContent = opt;
+                    if (opt === type) o.selected = true;
+                    typeSel.appendChild(o);
+                });
+                // Number input
+                const numInput = document.createElement('input');
+                numInput.type = 'number';
+                numInput.value = cost;
+                numInput.style.width = '60px';
+                // Remove button
+                const rmBtn = document.createElement('button');
+                rmBtn.textContent = 'Remove';
+                rmBtn.className = 'editor-btn';
+                rmBtn.style.background = '#c0392b';
+                rmBtn.onclick = function() {
+                    delete requirements[typeSel.value];
+                    renderRequirementsEditor(requirements);
+                };
+                row.appendChild(typeSel);
+                row.appendChild(numInput);
+                row.appendChild(rmBtn);
+                container.appendChild(row);
+                // Save on change
+                typeSel.onchange = () => {
+                    const oldType = type;
+                    const newType = typeSel.value;
+                    if (oldType !== newType) {
+                        requirements[newType] = requirements[oldType];
+                        delete requirements[oldType];
+                        renderRequirementsEditor(requirements);
+                    }
+                };
+                numInput.oninput = () => {
+                    requirements[typeSel.value] = parseInt(numInput.value) || 0;
+                };
+            });
+            container._requirements = requirements;
+        }
+
+        document.getElementById('addRequirementBtn').onclick = function() {
+            const container = document.getElementById('requirementsEditor');
+            let reqs = container._requirements || {};
+            // Add first missing type
+            for (let t of TYPE_OPTIONS) {
+                if (!(t in reqs)) {
+                    reqs[t] = 1;
+                    break;
+                }
+            }
+            renderRequirementsEditor(reqs);
+        };
+
+        // Patch node form load/save logic
+        window._patchNodeFormExclusionsRequirements = function(node) {
+            // Exclusions
+            const currentNodeId = document.getElementById('nodeId').value;
+            renderExclusionsEditor(node && node.exclusions ? [...node.exclusions] : [], currentNodeId);
+            // Requirements
+            renderRequirementsEditor(node && node.requirements ? {...node.requirements} : {});
+        };
+    </script>
+</body>
+
+</html>
