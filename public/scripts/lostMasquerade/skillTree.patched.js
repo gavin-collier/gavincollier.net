@@ -249,11 +249,12 @@ function meetsRequirements(reqs) {
 
 
 async function loadJSON() {
-    console.log("Patched!")
     const res = await fetch("/masquerade/herald/skilltree.json");
     const data = await res.json();
-    nodes = data.nodes.map(n => ({ ...n, expanded: true, hidden: false }));
+    nodes = data.nodes;
     links = data.links;
+    console.log(nodes.length + " nodes loaded.");
+    nodes.forEach(n => console.log("Loaded node: %s at (%d, %d)", n.id, n.x, n.y));
     draw();
 }
 
