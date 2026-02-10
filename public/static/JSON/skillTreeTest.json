@@ -1,0 +1,14 @@
+{
+    "nodes": [
+      { "id": "A", "label": "Source of the Self", "x": 600, "y": 50, "color": "#9b59b6", "tooltip": "Origin of power" },
+      { "id": "B", "label": "Above Matter", "x": 600, "y": 150, "color": "#f1c40f", "tooltip": "Transcends physicality" },
+      { "id": "C", "label": "Body of Power", "x": 400, "y": 250, "color": "#3498db", "tooltip": "Physical empowerment" },
+      { "id": "D", "label": "Racer", "x": 800, "y": 350, "color": "#1abc9c", "tooltip": "Speed techniques" }
+    ],
+    "links": [
+      { "from": "A", "to": "B" },
+      { "from": "B", "to": "C" },
+      { "from": "B", "to": "D" }
+    ]
+  }
+  
