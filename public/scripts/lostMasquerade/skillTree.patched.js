@@ -45,7 +45,9 @@ function draw() {
     links.forEach(link => {
         const from = nodes.find(n => n.id === link.from);
         const to = nodes.find(n => n.id === link.to);
-        drawCurve(from, to);
+        if (from && to) {
+            drawCurve(from, to);
+        }
     });
 
     nodes.forEach(drawNode);

@@ -18,6 +18,13 @@ app.get('/about', (req, res) => {
 app.get('/resume', (req, res) => {
     res.download(reqPath + "/static/Gavin Collier - Resume.pdf");
 });
+//Lost Masquerade 
+app.get('/masquerade/herald', (req, res) => {
+    res.sendFile(reqPath + "/views/lostMasquerade/heraldSkillTree.html");
+});
+app.get('/masquerade/herald/skilltree.json', (req, res) => {
+    res.sendFile(reqPath + "/static/JSON/skillTree.json");
+});
 // Redirect 404 to home page
 app.use((req, res) => {
     res.redirect('/');
