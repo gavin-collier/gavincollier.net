@@ -1,0 +1,365 @@
+:root {
+  --bg: #1c1c1e;
+  --panel: #2b2b2e;
+  --muted: #989898;
+  --accent: #8C1D40;
+  --rotation: 5deg;
+}
+
+@keyframes fadeInHead {
+  from { opacity: 0.01; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes skillSlideIn {
+  0%   { transform: translateX(400%); }
+  80%  { transform: translateX(-10px); }
+  90%  { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--bg);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+#landing {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--panel);
+    border-bottom: #000000 double 3px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    min-height: 90vh;
+    animation: fadeInHead 2.5s ease-in-out;
+}
+
+#intro #text {
+  flex: 1 1 55%;
+  padding: 20px;
+  padding-left: 15vw;
+}
+
+#intro h1, #intro h2, #intro p { color: #e1e1e1; margin: 0 0 0.5rem 0; }
+#intro h1 { font-size: 5rem; line-height: 1; }
+#intro h2 { color: var(--muted); font-weight: 500; }
+
+#intro #photo {
+    top: -9vh; 
+    left: 2.5vw;
+    padding: 20px;
+    max-width: 30vw;
+    height: 60vh;
+    transition: transform 0.3s ease-in-out;
+}
+
+#intro img {
+    width: 100%;
+    height: auto;
+    border: 5px solid white;
+    background-color: #121213;
+    box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
+    
+} 
+
+/* Hover Image */
+:root {
+  /* Make a variable for how much you want
+  the image to rotate by */
+  --rotation: 5deg
+}
+.hover-img-container {
+  position: relative;
+  perspective: 1000px;
+  transition: transform .2s;
+  &:hover {
+    transform: scale(1.02)
+  }
+}
+.hover-img-container img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	border-radius: 12px;
+    
+  /* Make sure the image transtions smoothly between transforms */
+  transition: transform .7s cubic-bezier(0,0,0,1);
+}
+.hover-img-container div {
+  /* Start the cells with a size */
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  z-index: 2;
+}
+.hover-img-container {
+  .top-left {
+    /* position the cell */
+    top: 0;
+    left: 0;
+    /* When hovering over this cell, 
+    select the image after this cell and apply the rotation */
+    &:hover ~ img {
+      /* rotate3d(x, y, z, angle) 
+      https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d */
+      transform: rotate3d(-1, 1, 0, var(--rotation))
+    }
+  }
+  /* Do the same for the rest of the cells */
+  .top-right {
+    top: 0;
+    right: 0;
+    &:hover ~ img {
+      transform: rotate3d(-1, -1, 0, var(--rotation))
+    }
+  }
+  .bottom-left {
+    bottom: 0;
+    left: 0;
+    &:hover ~ img {
+      transform: rotate3d(1, 1, 0, var(--rotation))
+    }
+  }
+  .bottom-right {
+    bottom: 0;
+    right: 0;
+    &:hover ~ img {
+      transform: rotate3d(1, -1, 0, var(--rotation)) 
+    }
+  }
+  /* For the top and bottom middle cells, i removed the width
+  and relied on left & right anchoring (inset property)*/
+  .top-middle {
+    top: 0;
+    bottom: 50%;
+    inset-inline: 35% !important;
+    width: unset;
+    height: unset;
+    &:hover ~ img {
+      transform: rotate3d(-1, 0, 0, var(--rotation))
+    }
+  }
+  .bottom-middle {
+    top: 50%;
+    bottom: 0;
+    inset-inline: 35% !important;
+    width: unset;
+    height: unset;
+    &:hover ~ img {
+      transform: rotate3d(1, 0, 0, var(--rotation))
+    }
+  }  
+}
+
+#skills h1 {
+    text-align: left;
+    padding-left: 20vw;
+    font-size: 3em;
+}
+
+#skills-grid {
+    padding-top: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+}
+
+#skills {
+    height: 75vh;
+    text-align: center;
+    color: rgb(225, 225, 225);
+    border-bottom: #000000 double 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.skillAnimation {
+    --randDist: 0;
+    --randTime: 2.5s;
+    animation-name: skillSlideIn;
+    animation-duration: var(--randTime);
+    animation-timing-function: ease-in-out;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+}
+.skill:hover {transform: translateY(-10px);}
+
+.skill img {
+    width: 120px;
+    height: 120px;
+    transition: filter 0.3s ease-in-out;
+}
+.skill:hover img {filter: brightness(1.5);}
+.skill p {margin-top: 10px;}
+
+#education {
+  background-color: var(--panel);
+  color: #e1e1e1;
+  border-bottom: 3px double #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+#education #text { flex: 1 1 60%; height: 60%; padding: 1rem; }
+#education #photo { flex: 0 0 35%; display: block; width: 100%; height: auto; margin: 10px; position: relative; }
+#education #photo > img {
+  width: 80%;
+  height: 75%;
+  clip-path: circle();
+  object-fit: cover;
+  position: relative;
+  top: 5px;
+  z-index: 2;
+}
+#education #photo::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  top: 0.5%;
+  left: -10%;
+  clip-path: circle();
+  z-index: 1;
+}
+
+#education h1 { text-align: left; padding-left: 20vw; font-size: 3rem; margin: 0; }
+#education a { display: block; text-align: left; padding-left: 20vw; font-size: 1.5rem; color: var(--accent); text-decoration: underline; }
+#education ul { text-align: left; padding-left: 20vw; }
+
+#story {
+    height: 100vh;
+    color: rgb(225, 225, 225);
+    text-align: left;
+    border-bottom: #000000 double 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.story-section {
+    width: 40%;
+    margin: 0px;
+    text-align: right;
+}
+
+#story h1 {
+    text-align: left;
+    padding-left: -5vw;
+    font-size: 3em;
+}
+
+.story-section h2 {
+    text-align: left;
+}
+
+#story #intro {
+    align-self: auto;
+    width: 40%;
+    margin-bottom: -20%;
+    text-align: left;
+    padding-bottom: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+#story #intro #text {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+
+#story #travel {
+    align-self: center;
+    padding-bottom: 7.5vh;
+}
+
+#story #hobbies {
+    align-self: flex-end;
+    padding-bottom: 7.5vh;
+}
+
+#story #hobbies p {
+    padding-right: 5vw;
+}
+
+/* Responsive breakpoints (mobile-first adjustments preserved) */
+@media (max-width: 1024px) {
+  /* Education and Story stack */
+  #education, #story { align-items: center; flex-direction: column; height: auto; }
+  #education #text { width: 90%; margin: 10px auto; padding-left: 5vw; }
+  #education h1, #education a, #education ul { padding-left: 5vw; }
+  #education #photo::before { visibility: hidden; }
+
+  .story-section, #story #intro { width: 80%; text-align: center; }
+  #story h1 { padding-left: 10vw; font-size: 2.5rem; }
+  #story #intro p, #story #hobbies p { padding: 0 3vw; }
+
+  /* Intro adjustments */
+  #intro { flex-direction: column; align-items: center; padding-left: 4vw; gap: 1rem; min-height: auto; }
+  #intro #photo { top: 0; max-width: 60vw; height: auto; }
+  #intro #text { padding-left: 5vw; width: 90%; }
+  #intro h1 { font-size: 3rem; }
+  #skills h1 { padding-left: 10vw; }
+  #skills { min-height: 100vh; }
+}
+
+@media (max-width: 768px) {
+  #story h1 { font-size: 2rem; padding-left: 5vw; }
+  .story-section, #story #intro { width: 95%; }
+  #education h1 { font-size: 2.5rem; }
+  #education a { font-size: 1.2rem; }
+  #education ul { padding-left: 5vw; }
+  #skills h1, #education h1, #story h1 { padding-left: 10vw; }
+}
+
+@media (max-width: 480px) {
+  #skills h1, #education h1, #story h1 { font-size: 2rem; padding-left: 8vw; }
+  #intro h1 { font-size: 2.2rem; }
+  #intro #photo { max-width: 80vw; height: auto; padding: 10px; margin-left: auto; margin-right: auto; padding-right: 75px;}
+  #intro #text { padding-left: 4vw; }
+  .skill img { width: 80px; height: 80px; }
+  #skills { min-height: auto; padding-bottom: 3rem; padding-top: 3rem; }
+}
+
+/* Utility */
+.hidden { display: none !important; }
+.center { display: flex; justify-content: center; align-items: center; }

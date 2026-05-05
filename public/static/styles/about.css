@@ -37,7 +37,7 @@ body {
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    min-height: 81vh;
+    min-height: 90vh;
     animation: fadeInHead 2.5s ease-in-out;
 }
 
@@ -46,24 +46,119 @@ body {
     padding: 20px;
 }
 
+#intro {
+    padding-left: 2.5vw;
+}
+
 #intro #photo {
-    flex: 1;
+    top: -9vh; 
     padding: 20px;
+    max-width: 30vw;
+    height: 60vh;
     transition: transform 0.3s ease-in-out;
 }
 
-#intro #photo:hover {
-    transform: scale(1.1);
-}
-
-#intro #photo img {
-    max-width: 100%;
+#intro img {
+    width: 100%;
     height: auto;
-
-    transform: scale(.8);
     border: 5px solid white;
     background-color: #121213;
     box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
+    
+} 
+
+/* Hover Image */
+:root {
+  /* Make a variable for how much you want
+  the image to rotate by */
+  --rotation: 5deg
+}
+.hover-img-container {
+  position: relative;
+  perspective: 1000px;
+  transition: transform .2s;
+  &:hover {
+    transform: scale(1.02)
+  }
+}
+.hover-img-container img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	border-radius: 12px;
+    
+  /* Make sure the image transtions smoothly between transforms */
+  transition: transform .7s cubic-bezier(0,0,0,1);
+}
+.hover-img-container div {
+  /* Start the cells with a size */
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  z-index: 2;
+}
+.hover-img-container {
+  .top-left {
+    /* position the cell */
+    top: 0;
+    left: 0;
+    /* When hovering over this cell, 
+    select the image after this cell and apply the rotation */
+    &:hover ~ img {
+      /* rotate3d(x, y, z, angle) 
+      https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d */
+      transform: rotate3d(-1, 1, 0, var(--rotation))
+    }
+  }
+  /* Do the same for the rest of the cells */
+  .top-right {
+    top: 0;
+    right: 0;
+    &:hover ~ img {
+      transform: rotate3d(-1, -1, 0, var(--rotation))
+    }
+  }
+  .bottom-left {
+    bottom: 0;
+    left: 0;
+    &:hover ~ img {
+      transform: rotate3d(1, 1, 0, var(--rotation))
+    }
+  }
+  .bottom-right {
+    bottom: 0;
+    right: 0;
+    &:hover ~ img {
+      transform: rotate3d(1, -1, 0, var(--rotation)) 
+    }
+  }
+  /* For the top and bottom middle cells, i removed the width
+  and relied on left & right anchoring (inset property)*/
+  .top-middle {
+    top: 0;
+    bottom: 50%;
+    inset-inline: 35% !important;
+    width: unset;
+    height: unset;
+    &:hover ~ img {
+      transform: rotate3d(-1, 0, 0, var(--rotation))
+    }
+  }
+  .bottom-middle {
+    top: 50%;
+    bottom: 0;
+    inset-inline: 35% !important;
+    width: unset;
+    height: unset;
+    &:hover ~ img {
+      transform: rotate3d(1, 0, 0, var(--rotation))
+    }
+  }  
+}
+
+#intro #text {
+    padding-left: 15vw;
 }
 
 #intro h1, #intro h2, #intro p {
