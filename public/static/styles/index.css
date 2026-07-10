@@ -4,6 +4,7 @@ body {
     overflow-x: hidden;
     overflow-y: hidden;
     background-color: #1c1c1e;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
 @keyframes fadeInHome {

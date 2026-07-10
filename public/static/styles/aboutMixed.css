@@ -258,7 +258,7 @@ body {
 #education ul { text-align: left; padding-left: 20vw; }
 
 #story {
-    height: 100vh;
+    height: auto;
     color: rgb(225, 225, 225);
     text-align: left;
     border-bottom: #000000 double 3px;
