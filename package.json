@@ -6,10 +6,10 @@
     "package.json": "^0.0.0"
   },
   "name": "gavincollier.net",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node .\\dist\\index.js",
     "build": "npx tsc"
   },
   "author": "Gavin Collier",
@@ -22,6 +22,7 @@
     "stylelint": "^15.11.0",
     "stylelint-config-recommended": "^13.0.0",
     "stylelint-config-standard": "^34.0.0",
-    "typescript": "^5.4.3"
+    "typescript": "^5.9.3",
+    "typescript-tools": "^0.3.1"
   }
 }
