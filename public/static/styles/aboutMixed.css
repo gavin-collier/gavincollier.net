@@ -259,25 +259,26 @@ body {
 
 #story {
     height: auto;
+    width: 100%;
     color: rgb(225, 225, 225);
     text-align: left;
     border-bottom: #000000 double 3px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: flex-start;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .story-section {
     width: 40%;
     margin: 0px;
-    text-align: right;
+    text-align: left;
 }
 
 #story h1 {
     text-align: left;
-    padding-left: -5vw;
+    padding-left: 0;
     font-size: 3em;
 }
 
@@ -286,19 +287,17 @@ body {
 }
 
 #story #intro {
-    align-self: auto;
     width: 40%;
-    margin-bottom: -20%;
+    margin-left: 0;
+    margin-bottom: 2vh;
     text-align: left;
-    padding-bottom: 10vh;
+    padding-bottom: -10vh;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
+    flex-direction: column;
 }
 
 #story #intro #text {
-    height: 60%;
+    height: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -306,20 +305,31 @@ body {
     align-items: stretch;
 }
 
-
 #story #travel {
-    align-self: center;
-    padding-bottom: 7.5vh;
+    width: 40%;
+    margin-left: 25%;
+    margin-top: -10vh;
+    margin-bottom: 2vh;
+    text-align: left;
+    padding-bottom: -10vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #story #hobbies {
-    align-self: flex-end;
-    padding-bottom: 7.5vh;
+    width: 40%;
+    margin-left: 55%;
+    margin-bottom: 2vh;
+    text-align: left;
+    padding-bottom: 10vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #story #hobbies p {
-    padding-right: 5vw;
+    padding-right: 0;
 }
+
 
 /* Responsive breakpoints (mobile-first adjustments preserved) */
 @media (max-width: 1024px) {
