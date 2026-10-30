@@ -1,14 +1,15 @@
-var navbar = document.getElementById("navbar");
-var navbarReact = navbar.getBoundingClientRect();
-var navParent = navbar.parentElement;
-var navParentReact = navParent.getBoundingClientRect();
+const navbar = document.getElementById("navbar");
+let navbarTop = navbar.getBoundingClientRect().top + window.scrollY;
 
-window.addEventListener("scroll", function () {
-    // console.log("window: " + window.scrollY + "| nav: " + navbarReact.height);
-    // console.log("navParentHeight: " + navParentReact.height);
-    if (window.scrollY > navParentReact.height) {
-        navbar.classList.add("sticky");
-    } else {
-        navbar.classList.remove("sticky");
-    }
+const updateStickyNavbar = () => {
+    navbar.classList.toggle("sticky", window.scrollY >= navbarTop);
+};
+
+window.addEventListener("scroll", updateStickyNavbar, { passive: true });
+window.addEventListener("resize", () => {
+    navbar.classList.remove("sticky");
+    navbarTop = navbar.getBoundingClientRect().top + window.scrollY;
+    updateStickyNavbar();
 });
+
+updateStickyNavbar();
